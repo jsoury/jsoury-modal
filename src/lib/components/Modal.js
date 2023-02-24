@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import styles from "./styles/modal.module.scss";
+import styles from "./modal.module.scss";
 
-const Modal = ({ show, onClose, title, children }) => {
+const Modal = ({ show, onClose, title, children, around }) => {
   const closeOnEscapeKeyDown = (e) => {
     if ((e.key || e.code) === "Escape") onClose();
   };
@@ -13,18 +13,22 @@ const Modal = ({ show, onClose, title, children }) => {
     show && (
       <div className={styles.modal} onClick={onClose}>
         <div
-          className={styles.modal__content}
+          className={`${styles.modal__content} ${
+            around && styles.modal__around
+          }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className={styles.modal__header}>
             <h4 className={styles.modal__title}>{title}</h4>
-          </div>
-          <div className={styles.modal__body}>{children}</div>
-          <div className={styles.modal__footer}>
-            <button className={styles.modal__button} onClick={onClose}>
-              Close
+            <button
+              className={`${styles.modal__button} ${styles.modal__close}`}
+              onClick={onClose}
+            >
+              X
             </button>
           </div>
+          <div className={styles.modal__body}>{children}</div>
+          <div className={styles.modal__footer}></div>
         </div>
       </div>
     )
