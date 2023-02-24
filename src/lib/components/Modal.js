@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./modal.module.scss";
+import styles from "./styles/modal.module.scss";
 
 const Modal = ({ show, onClose, title, children, around }) => {
   const closeOnEscapeKeyDown = (e) => {
