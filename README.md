@@ -15,5 +15,6 @@ In a React app, use the Modal components:
 | -------- | ----------- |
 | show     | Boolean     |
 | onClose  | Boolean     |
-| title    | string      |
-| children | string      |
+| title    | String      |
+| children | String      |
+| around   | Boolean     |
